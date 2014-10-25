@@ -117,3 +117,11 @@ function Players:GetPlayerFromCharacter(character)
 	return nil
 end
 ```
+
+#### Plugin:GetStudioUserId() [PluginSecurity]
+```lua
+function Plugin:GetStudioUserId()
+  local url = game:GetService("ContentProvider").BaseUrl .. "game/GetCurrentUser.ashx"
+	return tonumber(game:HttpGetAsync(url)) or 0
+end
+```
