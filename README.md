@@ -52,7 +52,7 @@ end
 #### Instance:WaitForChild(string childName)
 ```lua
 function Instance:WaitForChild(childName)
-	if self ~= game and not self:IsDescendantOf(game) then
+	if not self:IsDescendantOf(game) and self ~= game then
 		error('WaitForChild called on an Instance that is not in a DataModel.', 2)
 	end
 	local child = self:FindFirstChild(childName)
