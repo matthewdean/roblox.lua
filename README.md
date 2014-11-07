@@ -56,8 +56,10 @@ function Instance:WaitForChild(childName)
 		error('WaitForChild called on an Instance that is not in a DataModel.', 2)
 	end
 	local child = self:FindFirstChild(childName)
-	while not child or child.Name ~= childName do
-		child = self.ChildAdded:wait()
+	if not child then
+		repeat
+			child = self.ChildAdded:wait()
+		until child.Name == childName
 	end
 	return child
 end
