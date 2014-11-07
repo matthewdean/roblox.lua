@@ -97,7 +97,7 @@ end
 
 #### Players:GetPlayers()
 ```lua
-function Players:GetPlayer() do
+function Players:GetPlayers() do
 	local players = {}
 	for _, child in pairs(self:GetChildren()) do
 		if child:IsA("Player") then
